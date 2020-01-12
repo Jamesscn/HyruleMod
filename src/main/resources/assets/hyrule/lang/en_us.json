@@ -6,5 +6,13 @@
 	"item.hyrule.rupee_purple": "Purple Rupee",
 	"item.hyrule.rupee_orange": "Orange Rupee",
 	"item.hyrule.rupee_silver": "Silver Rupee",
+	"item.hyrule.potion_red": "Red Potion",
+	"item.hyrule.potion_blue": "Blue Potion",
+	"item.hyrule.potion_green": "Green Potion",
+	"item.hyrule.bottle_fairy": "Fairy Bottle",
+	"item.hyrule.bottle_milk": "Bottle of Milk",
+	"item.hyrule.bottle_milk_half": "Bottle of Milk (1/2)",
+	"item.hyrule.deku_stick": "Deku Stick",
+	"item.hyrule.deku_nut": "Deku Nut",
 	"itemGroup.hyrule": "The Legend of Hyrule"
 }

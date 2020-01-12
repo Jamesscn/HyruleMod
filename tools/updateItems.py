@@ -5,8 +5,6 @@ langFile = open("../src/main/resources/assets/hyrule/lang/en_us.json", "w")
 langFile.write("{\n")
 modItemsFile = open("../src/main/java/com/jamesscn/hyrule/init/ModItems.java", "w")
 modItemsFile.write("package com.jamesscn.hyrule.init;\n\nimport com.jamesscn.hyrule.HyruleMod;\nimport net.minecraft.item.Item;\nimport net.minecraftforge.registries.ObjectHolder;\n\n@ObjectHolder(HyruleMod.M_ID)\npublic class ModItems {\n")
-modEventFile = open("../src/main/java/com/jamesscn/hyrule/ModEventSubscriber.java", "w")
-modEventFile.write("package com.jamesscn.hyrule;\n\nimport com.jamesscn.hyrule.init.ModItemGroups;\nimport net.minecraft.item.Item;\nimport net.minecraft.util.ResourceLocation;\nimport net.minecraftforge.event.RegistryEvent;\nimport net.minecraftforge.eventbus.api.SubscribeEvent;\nimport net.minecraftforge.fml.common.Mod;\nimport net.minecraftforge.registries.IForgeRegistryEntry;\n\n@Mod.EventBusSubscriber(modid = HyruleMod.M_ID, bus = Mod.EventBusSubscriber.Bus.MOD)\npublic class ModEventSubscriber {\n\t@SubscribeEvent\n\tpublic static void onRegisterItems(RegistryEvent.Register<Item> event) {\n\t\tevent.getRegistry().registerAll(\n")
 for i in items:
     itemInfo = i.split(",")
     item = itemInfo[0]
@@ -16,13 +14,7 @@ for i in items:
     modelFile.close()
     langFile.write("\t\"item.hyrule." + item + "\": \"" + name + "\",\n")
     modItemsFile.write("\tpublic static final Item " + item + " = null;\n")
-    modEventFile.write("\t\t\tsetup(new Item(new Item.Properties().group(ModItemGroups.ZeldaItems)), \"" + item + "\")")
-    if i != items[-1]:
-        modEventFile.write(",")
-    modEventFile.write("\n")
 langFile.write("\t\"itemGroup.hyrule\": \"The Legend of Hyrule\"\n}")
 langFile.close()
 modItemsFile.write("}")
 modItemsFile.close()
-modEventFile.write("\t\t);\n\t}\n\n\tpublic static <T extends IForgeRegistryEntry<T>> T setup(final T entry, final String name) {\n\t\treturn setup(entry, new ResourceLocation(HyruleMod.M_ID, name));\n\t}\n\n\tpublic static <T extends IForgeRegistryEntry<T>> T setup(final T entry, final ResourceLocation registryName) {\n\t\tentry.setRegistryName(registryName);\n\t\treturn entry;\n\t}\n}")
-modEventFile.close()

@@ -13,4 +13,12 @@ public class ModItems {
 	public static final Item rupee_purple = null;
 	public static final Item rupee_orange = null;
 	public static final Item rupee_silver = null;
+	public static final Item potion_red = null;
+	public static final Item potion_blue = null;
+	public static final Item potion_green = null;
+	public static final Item bottle_fairy = null;
+	public static final Item bottle_milk = null;
+	public static final Item bottle_milk_half = null;
+	public static final Item deku_stick = null;
+	public static final Item deku_nut = null;
 }
