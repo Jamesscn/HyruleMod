@@ -1,0 +1,16 @@
+modLoader="javafml"
+loaderVersion="[25,)"
+[[mods]]
+modId="zeldahyrule"
+version="a1"
+displayName="The Legend of Hyrule"
+logoFile="zeldaHyrule.png"
+credits="Inspired by the Legend of Zelda series by Nintendo"
+authors="Jamesscn"
+description="A mod based on the Legend of Zelda series, mainly Ocarina of Time, Majora's Mask, The Wind Waker and Twilight Princess.\nThis mod aims to include items, monsters and extras from these four games."
+# A URL to refer people to when problems occur with this mod
+#issueTrackerURL="http://my.issue.tracker/" #optional
+# A URL to query for updates for this mod. See the JSON update specification <here>
+#updateJSONURL="http://myurl.me/" #optional
+# A URL for the "homepage" for this mod, displayed in the mod UI
+#displayURL="http://example.com/" #optional
