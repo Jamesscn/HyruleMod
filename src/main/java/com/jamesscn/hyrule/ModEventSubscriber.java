@@ -28,8 +28,9 @@ public class ModEventSubscriber {
 			setup(new BottleFairy(), "bottle_fairy"),
 			setup(new BottleMilk(), "bottle_milk"),
 			setup(new BottleMilkHalf(), "bottle_milk_half"),
-			setup(new Item(new Item.Properties().group(ModItemGroups.ZeldaItems)), "deku_stick"),
-			setup(new Item(new Item.Properties().group(ModItemGroups.ZeldaItems)), "deku_nut")
+			setup(new DekuStick(), "deku_stick"),
+			setup(new DekuNut(), "deku_nut")
+			//setup(new Item(new Item.Properties().group(ModItemGroups.ZeldaItems)), "deku_nut")
 		);
 	}
 

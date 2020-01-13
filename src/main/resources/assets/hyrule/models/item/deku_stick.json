@@ -2,5 +2,13 @@
 	"parent": "item/generated",
 	"textures": {
 		"layer0": "hyrule:item/deku_stick"
-	}
+	},
+	"overrides": [
+		{
+			"predicate": {
+				"type": 1
+			},
+			"model": "hyrule:item/deku_stick_lit"
+		}
+	]
 }

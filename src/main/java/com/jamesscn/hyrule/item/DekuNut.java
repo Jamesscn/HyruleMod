@@ -12,29 +12,18 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class Rupee extends Item {
+public class DekuNut extends Item {
 
-    public int value;
-
-    public Rupee(int value) {
+    public DekuNut() {
         super(new Item.Properties().group(ModItemGroups.ZeldaItems));
-        this.value = value;
     }
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-        ITextComponent description;
-        if(value == 1) {
-            description = new StringTextComponent("Worth one rupee");
-        } else {
-            description = new StringTextComponent("Worth " + value + " rupees!");
-        }
-        if(value < 100) {
-            description.applyTextStyle(TextFormatting.GRAY);
-        } else {
-            description.applyTextStyle(TextFormatting.GOLD);
-        }
+        ITextComponent description = new StringTextComponent("Stuns enemies when thrown");
+        description.applyTextStyle(TextFormatting.GRAY);
         tooltip.add(description);
         super.addInformation(stack, worldIn, tooltip, flagIn);
     }
+
 }
