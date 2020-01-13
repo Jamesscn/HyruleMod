@@ -30,7 +30,7 @@ public class BottleFairy extends Item {
         }
 
         playerIn.setHealth(playerIn.getMaxHealth());
-        worldIn.playSound((PlayerEntity) null, playerIn.posX, playerIn.posY, playerIn.posZ, ModSounds.fairy, SoundCategory.NEUTRAL, 0.5F, 1.0F);
+        worldIn.playSound(playerIn, playerIn.posX, playerIn.posY, playerIn.posZ, ModSounds.fairy, SoundCategory.NEUTRAL, 0.5F, 1.0F);
         return new ActionResult<>(ActionResultType.SUCCESS, itemstack);
     }
 

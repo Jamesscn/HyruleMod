@@ -1,6 +1,5 @@
 package com.jamesscn.hyrule;
 
-import com.jamesscn.hyrule.init.ModItemGroups;
 import com.jamesscn.hyrule.item.*;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
@@ -12,6 +11,7 @@ import net.minecraftforge.registries.IForgeRegistryEntry;
 
 @Mod.EventBusSubscriber(modid = HyruleMod.M_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModEventSubscriber {
+
 	@SubscribeEvent
 	public static void onRegisterItems(RegistryEvent.Register<Item> event) {
 		event.getRegistry().registerAll(

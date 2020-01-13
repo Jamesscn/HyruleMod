@@ -2,7 +2,7 @@ modLoader="javafml"
 loaderVersion="[25,)"
 [[mods]]
 modId="hyrule"
-version="a1"
+version="alpha_2"
 displayName="The Legend of Hyrule"
 credits="Inspired by the Legend of Zelda series by Nintendo"
 authors="Jamesscn"
