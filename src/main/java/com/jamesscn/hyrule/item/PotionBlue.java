@@ -1,36 +1,34 @@
 package com.jamesscn.hyrule.item;
 
-import com.jamesscn.hyrule.init.ModItemGroups;
-import net.minecraft.client.util.ITooltipFlag;
+import com.jamesscn.hyrule.capabilities.StatusProvider;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.UseAction;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
-import javax.annotation.Nullable;
-import java.util.List;
-
-public class PotionBlue extends Item {
+public class PotionBlue extends ModItem {
 
     public PotionBlue() {
-        super(new Item.Properties().group(ModItemGroups.ZeldaItems).maxStackSize(1));
+        super("Restores health and mana", TextFormatting.GRAY, 1);
     }
 
     @Override
     public ItemStack onItemUseFinish(ItemStack stack, World worldIn, LivingEntity entityLiving) {
         if (!worldIn.isRemote) {
             entityLiving.curePotionEffects(stack);
-            entityLiving.setHealth(entityLiving.getMaxHealth()); //Restores the players health to full and removes bad effects
-            //restore mana
+            entityLiving.setHealth(entityLiving.getMaxHealth());
+            if(entityLiving instanceof PlayerEntity) {
+                PlayerEntity player = (PlayerEntity)entityLiving;
+                player.getCapability(StatusProvider.statusCapability).ifPresent(status -> {
+                    status.setMana(status.getManaLimit());
+                });
+            }
         }
 
         if (entityLiving instanceof PlayerEntity && !((PlayerEntity)entityLiving).abilities.isCreativeMode) {
@@ -53,13 +51,5 @@ public class PotionBlue extends Item {
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
         playerIn.setActiveHand(handIn);
         return new ActionResult<>(ActionResultType.SUCCESS, playerIn.getHeldItem(handIn));
-    }
-
-    @Override
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-        ITextComponent description = new StringTextComponent("Restores health and mana");
-        description.applyTextStyle(TextFormatting.GRAY);
-        tooltip.add(description);
-        super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 }

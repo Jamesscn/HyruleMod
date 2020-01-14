@@ -1,9 +1,11 @@
 package com.jamesscn.hyrule;
 
 import com.jamesscn.hyrule.item.*;
+import com.jamesscn.hyrule.tool.*;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -29,8 +31,24 @@ public class ModEventSubscriber {
 			setup(new BottleMilk(), "bottle_milk"),
 			setup(new BottleMilkHalf(), "bottle_milk_half"),
 			setup(new DekuStick(), "deku_stick"),
-			setup(new DekuNut(), "deku_nut")
-			//setup(new Item(new Item.Properties().group(ModItemGroups.ZeldaItems)), "deku_nut")
+			setup(new DekuNut(), "deku_nut"),
+			setup(new DinsFire(), "dins_fire"),
+			setup(new FaroresWind(), "farores_wind"),
+			setup(new NayrusLove(), "nayrus_love"),
+			//setup(new Bomb(), "bomb"),
+			//setup(new BombWater(), "bomb_water"),
+			//setup(new Bombchu(), "bombchu"),
+			//setup(new Boomerang(), "boomerang"),
+			//setup(new Slingshot(), "slingshot"),
+			//setup(new Ocarina(), "ocarina"),
+			//setup(new Lens(), "lens"),
+			//setup(new MagicBean(), "magic_bean"),
+			//setup(new Hookshot(), "hookshot"),
+			//setup(new Hookshot(), "longshot"),
+			//setup(new MegatronHammer(), "megatron_hammer"),
+			setup(new ModItem("Collect four to obtain a new heart", TextFormatting.GOLD, 1), "heart_piece"),
+			setup(new ModItem("Increases life capacity by one", TextFormatting.GOLD, 1), "heart_container"),
+			setup(new SwordKokiri(), "sword_kokiri")
 		);
 	}
 

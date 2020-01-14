@@ -40,6 +40,16 @@ public class ForgeEventSubscriber {
             });
             event.getItem().remove();
             event.setCanceled(true);
+        } else if (item == ModItems.heart_piece) {
+            event.getPlayer().getCapability(StatusProvider.statusCapability).ifPresent(status -> {
+                status.addHeartPiece();
+            });
+            event.getPlayer().setHealth(event.getPlayer().getMaxHealth());
+        } else if (item == ModItems.heart_container) {
+            event.getPlayer().getCapability(StatusProvider.statusCapability).ifPresent(status -> {
+                status.addHeartContainer();
+            });
+            event.getPlayer().setHealth(event.getPlayer().getMaxHealth());
         }
     }
 
@@ -96,7 +106,7 @@ public class ForgeEventSubscriber {
 
     @SubscribeEvent
     public static void onEntityInteract(PlayerInteractEvent.EntityInteract event) {
-        if(event.getTarget() instanceof CowEntity && event.getItemStack().getItem() == Items.GLASS_BOTTLE) {
+        if(event.getTarget() instanceof CowEntity && (event.getItemStack().getItem() == Items.GLASS_BOTTLE || event.getItemStack().getItem() == ModItems.bottle_milk_half)) {
             if (!event.getWorld().isRemote()) {
                 event.getItemStack().shrink(1);
                 event.getPlayer().addItemStackToInventory(new ItemStack(ModItems.bottle_milk));

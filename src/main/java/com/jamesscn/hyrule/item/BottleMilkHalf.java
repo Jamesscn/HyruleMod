@@ -1,28 +1,20 @@
 package com.jamesscn.hyrule.item;
 
-import com.jamesscn.hyrule.init.ModItemGroups;
-import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.UseAction;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
-import javax.annotation.Nullable;
-import java.util.List;
-
-public class BottleMilkHalf extends Item {
+public class BottleMilkHalf extends ModItem {
 
     public BottleMilkHalf() {
-        super(new Item.Properties().group(ModItemGroups.ZeldaItems).maxStackSize(1));
+        super("This bottle has one serving left and restores health", TextFormatting.GRAY, 1);
     }
 
     @Override
@@ -52,13 +44,5 @@ public class BottleMilkHalf extends Item {
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
         playerIn.setActiveHand(handIn);
         return new ActionResult<>(ActionResultType.SUCCESS, playerIn.getHeldItem(handIn));
-    }
-
-    @Override
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-        ITextComponent description = new StringTextComponent("This bottle has one serving left and restores health");
-        description.applyTextStyle(TextFormatting.GRAY);
-        tooltip.add(description);
-        super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 }

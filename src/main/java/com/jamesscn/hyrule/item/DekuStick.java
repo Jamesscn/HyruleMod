@@ -1,11 +1,9 @@
 package com.jamesscn.hyrule.item;
 
-import com.jamesscn.hyrule.init.ModItemGroups;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FireBlock;
-import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
@@ -14,21 +12,15 @@ import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.IWorld;
-import net.minecraft.world.World;
 
-import javax.annotation.Nullable;
-import java.util.List;
-
-public class DekuStick extends Item {
+public class DekuStick extends ModItem {
 
     public boolean lit = false;
 
     public DekuStick() {
-        super(new Item.Properties().group(ModItemGroups.ZeldaItems));
+        super("Right click on a fire to light", TextFormatting.GRAY, 1);
         addPropertyOverride(new ResourceLocation("type"), (stack, world, livingEntity) -> stack.getDamage());
     }
 
@@ -66,18 +58,5 @@ public class DekuStick extends Item {
             return true;
         }
         return false;
-    }
-
-    @Override
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-        ITextComponent description;
-        if(lit) {
-            description = new StringTextComponent("Right click on objects or hit mobs to set them on fire");
-        } else {
-            description = new StringTextComponent("Right click on a fire to light");
-        }
-        description.applyTextStyle(TextFormatting.GRAY);
-        tooltip.add(description);
-        super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 }
