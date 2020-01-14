@@ -20,5 +20,13 @@
 	"item.hyrule.heart_piece": "Piece of Heart",
 	"item.hyrule.heart_container": "Heart Container",
 	"item.hyrule.sword_kokiri": "Kokiri Sword",
+	"item.hyrule.sword_master": "Master Sword",
+	"item.hyrule.sword_biggoron": "Biggoron Sword",
+	"item.hyrule.sword_razor": "Razor Sword",
+	"item.hyrule.sword_gilded": "Gilded Sword",
+	"item.hyrule.sword_great_fairy": "Great Fairy Sword",
+	"item.hyrule.shield_deku": "Deku Shield",
+	"item.hyrule.shield_hylian": "Hylian Shield",
+	"item.hyrule.shield_mirror": "Mirror Shield",
 	"itemGroup.hyrule": "The Legend of Hyrule"
 }

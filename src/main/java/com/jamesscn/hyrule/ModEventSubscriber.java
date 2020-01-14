@@ -48,7 +48,35 @@ public class ModEventSubscriber {
 			//setup(new MegatronHammer(), "megatron_hammer"),
 			setup(new ModItem("Collect four to obtain a new heart", TextFormatting.GOLD, 1), "heart_piece"),
 			setup(new ModItem("Increases life capacity by one", TextFormatting.GOLD, 1), "heart_container"),
-			setup(new SwordKokiri(), "sword_kokiri")
+			setup(new SwordKokiri(), "sword_kokiri"),
+			setup(new SwordMaster(), "sword_master"),
+			setup(new SwordBiggoron(), "sword_biggoron"),
+			setup(new SwordRazor(), "sword_razor"),
+			setup(new SwordGilded(), "sword_gilded"),
+			setup(new SwordGreatFairy(), "sword_great_fairy"),
+			setup(new ShieldDeku(), "shield_deku"),
+			setup(new ShieldHylian(), "shield_hylian"),
+			setup(new ShieldMirror(), "shield_mirror")
+			/*
+			setup(new KokiriBoots(), "kokiri_boots"),
+			setup(new KokiriLeggings(), "kokiri_leggings"),
+			setup(new KokiriTunic(), "kokiri_tunic"),
+			setup(new KokiriHat(), "kokiri_hat"),
+			setup(new ZoraBoots(), "zora_boots"),
+			setup(new ZoraLeggings(), "zora_leggings"),
+			setup(new ZoraTunic(), "zora_tunic"),
+			setup(new ZoraHat(), "zora_hat"),
+			setup(new GoronBoots(), "goron_boots"),
+			setup(new GoronLeggings(), "goron_leggings"),
+			setup(new GoronTunic(), "goron_tunic"),
+			setup(new GoronHat(), "goron_hat"),
+			setup(new MagicBoots(), "magic_boots"),
+			setup(new MagicLeggings(), "magic_leggings"),
+			setup(new MagicTunic(), "magic_tunic"),
+			setup(new MagicHat(), "magic_hat"),
+			setup(new IronBoots(), "iron_boots"),
+			setup(new HoverBoots(), "hover_boots")
+			*/
 		);
 	}
 

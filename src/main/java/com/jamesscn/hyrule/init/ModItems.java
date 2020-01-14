@@ -40,4 +40,12 @@ public class ModItems {
 	public static final Item heart_piece = null;
 	public static final Item heart_container = null;
 	public static final Item sword_kokiri = null;
+	public static final Item sword_master = null;
+	public static final Item sword_biggoron = null;
+	public static final Item sword_razor = null;
+	public static final Item sword_gilded = null;
+	public static final Item sword_great_fairy = null;
+	public static final Item shield_deku = null;
+	public static final Item shield_hylian = null;
+	public static final Item shield_mirror = null;
 }
