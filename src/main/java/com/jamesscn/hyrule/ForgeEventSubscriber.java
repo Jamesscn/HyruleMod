@@ -4,8 +4,10 @@ import com.jamesscn.hyrule.capabilities.IStatus;
 import com.jamesscn.hyrule.capabilities.StatusHandler;
 import com.jamesscn.hyrule.capabilities.StatusProvider;
 import com.jamesscn.hyrule.capabilities.StatusStorage;
+import com.jamesscn.hyrule.entity.DekuNutEntity;
 import com.jamesscn.hyrule.init.ModItems;
 import com.jamesscn.hyrule.item.Rupee;
+import com.jamesscn.hyrule.render.DekuNutRender;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.passive.CowEntity;
@@ -21,6 +23,7 @@ import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
@@ -119,6 +122,7 @@ public class ForgeEventSubscriber {
     @SubscribeEvent
     public static void onCommonSetup(FMLCommonSetupEvent event) {
         CapabilityManager.INSTANCE.register(IStatus.class, new StatusStorage(), StatusHandler::new);
+        RenderingRegistry.registerEntityRenderingHandler(DekuNutEntity.class, DekuNutRender::new);
     }
 
     @SubscribeEvent

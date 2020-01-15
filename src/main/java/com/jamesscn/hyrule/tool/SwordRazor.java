@@ -15,7 +15,9 @@ import java.util.List;
 public class SwordRazor extends SwordItem {
 
     public SwordRazor() {
-        super(new ModItemTier(3, 100, 8.0F, 3.0F, 0, null), 4, -1.8F, new Item.Properties().group(ModItemGroups.ZeldaItems));
+        super(new ModItemTier(3, 100, 8.0F, 3.0F, 0, () -> {
+            return Ingredient.EMPTY;
+        }), 4, -1.8F, new Item.Properties().group(ModItemGroups.ZeldaItems));
     }
 
     @Override

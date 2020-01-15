@@ -1,7 +1,10 @@
 package com.jamesscn.hyrule;
 
+import com.jamesscn.hyrule.entity.DekuNutEntity;
 import com.jamesscn.hyrule.item.*;
 import com.jamesscn.hyrule.tool.*;
+import net.minecraft.entity.EntityClassification;
+import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -58,24 +61,12 @@ public class ModEventSubscriber {
 			setup(new ShieldHylian(), "shield_hylian"),
 			setup(new ShieldMirror(), "shield_mirror")
 			/*
-			setup(new KokiriBoots(), "kokiri_boots"),
-			setup(new KokiriLeggings(), "kokiri_leggings"),
-			setup(new KokiriTunic(), "kokiri_tunic"),
-			setup(new KokiriHat(), "kokiri_hat"),
-			setup(new ZoraBoots(), "zora_boots"),
-			setup(new ZoraLeggings(), "zora_leggings"),
-			setup(new ZoraTunic(), "zora_tunic"),
-			setup(new ZoraHat(), "zora_hat"),
-			setup(new GoronBoots(), "goron_boots"),
-			setup(new GoronLeggings(), "goron_leggings"),
-			setup(new GoronTunic(), "goron_tunic"),
-			setup(new GoronHat(), "goron_hat"),
-			setup(new MagicBoots(), "magic_boots"),
-			setup(new MagicLeggings(), "magic_leggings"),
-			setup(new MagicTunic(), "magic_tunic"),
-			setup(new MagicHat(), "magic_hat"),
-			setup(new IronBoots(), "iron_boots"),
-			setup(new HoverBoots(), "hover_boots")
+			setup(new TunicKokiri(), "tunic_kokiri"), //equips the full armour set
+			setup(new TunicZora(), "tunic_zora"),
+			setup(new TunicGoron(), "tunic_goron"),
+			setup(new TunicMagic(), "tunic_magic"),
+			setup(new BootsIron(), "boots_iron"),
+			setup(new BootsHover(), "boots_hover")
 			*/
 		);
 	}
@@ -83,7 +74,14 @@ public class ModEventSubscriber {
 	@SubscribeEvent
 	public static void onRegisterSoundEvents(RegistryEvent.Register<SoundEvent> event) {
 		event.getRegistry().registerAll(
-				setup(new SoundEvent(new ResourceLocation(HyruleMod.M_ID, "fairy")), "fairy")
+			setup(new SoundEvent(new ResourceLocation(HyruleMod.M_ID, "fairy")), "fairy")
+		);
+	}
+
+	@SubscribeEvent
+	public static void onRegisterEntities(RegistryEvent.Register<EntityType<?>> event) {
+		event.getRegistry().registerAll(
+			EntityType.Builder.<DekuNutEntity>create(DekuNutEntity::new, EntityClassification.MISC).setCustomClientFactory(DekuNutEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(24).setUpdateInterval(60).build("deku_nut").setRegistryName(new ResourceLocation(HyruleMod.M_ID, "deku_nut"))
 		);
 	}
 
