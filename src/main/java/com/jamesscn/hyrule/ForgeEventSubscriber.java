@@ -48,11 +48,25 @@ public class ForgeEventSubscriber {
                 status.addHeartPiece();
             });
             event.getPlayer().setHealth(event.getPlayer().getMaxHealth());
+            event.getItem().remove();
+            event.setCanceled(true);
         } else if (item == ModItems.heart_container) {
             event.getPlayer().getCapability(StatusProvider.statusCapability).ifPresent(status -> {
                 status.addHeartContainer();
             });
             event.getPlayer().setHealth(event.getPlayer().getMaxHealth());
+            event.getItem().remove();
+            event.setCanceled(true);
+        } else if (item == ModItems.mana) {
+            event.getPlayer().getCapability(StatusProvider.statusCapability).ifPresent(status -> {
+                status.addMana(50);
+            });
+            event.getItem().remove();
+            event.setCanceled(true);
+        } else if (item == ModItems.heart) {
+            event.getPlayer().heal(2);
+            event.getItem().remove();
+            event.setCanceled(true);
         }
     }
 

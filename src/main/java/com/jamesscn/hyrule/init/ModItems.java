@@ -39,6 +39,8 @@ public class ModItems {
 	 */
 	public static final Item heart_piece = null;
 	public static final Item heart_container = null;
+	public static final Item heart = null;
+	public static final Item mana = null;
 	public static final Item sword_kokiri = null;
 	public static final Item sword_master = null;
 	public static final Item sword_biggoron = null;

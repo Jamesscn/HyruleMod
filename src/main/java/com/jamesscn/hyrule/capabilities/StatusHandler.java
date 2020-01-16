@@ -60,7 +60,7 @@ public class StatusHandler implements IStatus {
 
     @Override
     public boolean hasEnoughMana(int amount) {
-        return !(amount < mana);
+        return amount <= mana;
     }
 
     @Override
@@ -100,7 +100,7 @@ public class StatusHandler implements IStatus {
 
     @Override
     public boolean hasEnoughRupees(int amount) {
-        return !(amount < rupees);
+        return amount <= rupees;
     }
 
     @Override

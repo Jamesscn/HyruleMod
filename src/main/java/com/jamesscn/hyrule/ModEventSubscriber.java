@@ -51,6 +51,8 @@ public class ModEventSubscriber {
 			//setup(new MegatronHammer(), "megatron_hammer"),
 			setup(new ModItem("Collect four to obtain a new heart", TextFormatting.GOLD, 1), "heart_piece"),
 			setup(new ModItem("Increases life capacity by one", TextFormatting.GOLD, 1), "heart_container"),
+			setup(new ModItem("Heals the player", TextFormatting.GRAY, 64), "heart"),
+			setup(new ModItem("Replenishes mana", TextFormatting.GRAY, 64), "mana"),
 			setup(new SwordKokiri(), "sword_kokiri"),
 			setup(new SwordMaster(), "sword_master"),
 			setup(new SwordBiggoron(), "sword_biggoron"),
