@@ -18,6 +18,7 @@ import net.minecraft.item.Items;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
+import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
@@ -130,6 +131,21 @@ public class ForgeEventSubscriber {
             }
         } else if(event.getTarget() instanceof LivingEntity && event.getItemStack().getItem() == ModItems.deku_stick && event.getItemStack().getDamage() == 1) {
             event.getTarget().setFire(6);
+        }
+    }
+
+    @SubscribeEvent
+    public static void onAttack(LivingAttackEvent event) {
+        if(event.getEntityLiving() instanceof PlayerEntity) {
+            PlayerEntity player = (PlayerEntity)event.getEntityLiving();
+            if(event.getSource().isFireDamage()) {
+                if(player.getHeldItemMainhand().getItem() == ModItems.shield_deku) {
+                    player.getHeldItemMainhand().shrink(1);
+                }
+                if(player.getHeldItemOffhand().getItem() == ModItems.shield_deku) {
+                    player.getHeldItemOffhand().shrink(1);
+                }
+            }
         }
     }
 

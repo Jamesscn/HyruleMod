@@ -16,7 +16,7 @@ import java.util.List;
 public class ShieldMirror extends ShieldItem {
 
     public ShieldMirror() {
-        super(new Item.Properties().group(ModItemGroups.ZeldaItems));
+        super(new Item.Properties().group(ModItemGroups.ZeldaItems).maxStackSize(1));
     }
 
     @Override
